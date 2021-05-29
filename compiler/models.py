@@ -27,4 +27,4 @@ class test_case(models.Model):
     def _str__(self):
         return self.id
 
-#test,test@2021
+#test,test
