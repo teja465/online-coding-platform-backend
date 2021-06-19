@@ -6,4 +6,6 @@ urlpatterns = [
     path('problem/<str:title>/<str:id>',views.code),
     path('compile',views.compile),
     path('submit',views.submit_code),
+    path('test',views.auth_test),
+
 ]

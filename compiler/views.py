@@ -5,6 +5,11 @@ from django.core import serializers
 import json
 import requests
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import api_view,permission_classes
+from rest_framework.permissions import IsAuthenticated,AllowAny
+
+
+
 
 # Create your views here.
 
@@ -131,3 +136,14 @@ def submit_code(request):
         print()
         print()
     return JsonResponse(final_response,safe=False)
+
+@api_view(['GET'])
+# @permission_classes((IsAuthenticated,))
+# @permission_classes([AllowAny])
+
+def auth_test(request):
+    print("In test method ",request.user)
+    
+    data ={}
+    data['name']='some-test-name-here'
+    return JsonResponse(data,safe=False)
